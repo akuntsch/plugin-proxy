@@ -1,3 +1,3 @@
-function noproxy -d "Clear all proxy environment variables"
+function noproxy --description "Clear all proxy environment variables"
   __proxy.set -e
 end

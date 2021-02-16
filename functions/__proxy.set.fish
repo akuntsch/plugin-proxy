@@ -1,15 +1,15 @@
-function __proxy.set -a proxy \
-  -d "Set all proxy vars to specified value"
+function __proxy.set --argument-names proxy --description "Set all proxy vars to specified value"
 
-  set -l envars http_proxy HTTP_PROXY \
+  set --local envars http_proxy HTTP_PROXY \
     https_proxy HTTPS_PROXY \
     ftp_proxy FTP_PROXY \
     all_proxy ALL_PROXY
+
   for envar in $envars
     if test $proxy = '-e'
-      set -e $envar
+      set --erase $envar
     else
-      set -Ux $envar $proxy
+      set --universal --export $envar $proxy
     end
   end
 end

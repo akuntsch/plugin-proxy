@@ -1,12 +1,12 @@
 # Unset proxy variables
-set -l envars http_proxy HTTP_PROXY \
+set --local envars http_proxy HTTP_PROXY \
   https_proxy HTTPS_PROXY \
   ftp_proxy FTP_PROXY \
   all_proxy ALL_PROXY
 
 for envar in $envars
-  set -e $envar
+  set --erase $envar
 end
 
 # Erase proxy functions
-functions -e noproxy proxy __proxy.set
+functions --erase noproxy proxy __proxy.set
